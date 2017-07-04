@@ -1,6 +1,9 @@
 var express = require('express');
 var router = express.Router();
 var auth = require("../controllers/AuthController.js");
+var auth = require("../controllers/ListaController.js");
+var auth = require("../controllers/ProductoController.js");
+var auth = require("../controllers/RegistroController.js");
 
 // restrict index for logged in user only
 router.get('/', auth.home);
