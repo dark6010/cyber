@@ -1,4 +1,3 @@
-var mongoose = require("mongoose");
 var passport = require("passport");
 var User = require("../models/User");
 
@@ -24,7 +23,6 @@ userController.doRegister = function(req, res) {
     if (err) {
       return res.render('register', { user : user });
     }
-
     passport.authenticate('local')(req, res, function () {
       res.redirect('/');
     });

@@ -1,10 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var auth = require("../controllers/AuthController.js");
-var lista = require("../controllers/ListaController.js");
-var producto = require("../controllers/ProductoController.js");
-var registro = require("../controllers/RegistroController.js");
-var proc= ("../controllers/proc.js")
+var proc= require("../controllers/proc.js")
 
 // restrict index for logged in user only
 router.get('/', auth.home);
@@ -23,5 +20,11 @@ router.post('/login', auth.doLogin);
 
 // route for logout action
 router.get('/logout', auth.logout);
+router.get('/regProducto', proc.regProducto);
+router.post('/regProducto', proc.postregProducto);
+router.get('/regLista', proc.regLista);
+router.post('/regLista', proc.postregLista);
+router.get('/p1', proc.p1)
+
 
 module.exports = router;

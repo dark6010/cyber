@@ -9,7 +9,10 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://127.0.0.1/cyber')
+mongoose.connect('mongodb://127.0.0.1/cyber', {
+  useMongoClient: true,
+  /* other options */
+})
   .then(() =>  console.log('connection succesful'))
   .catch((err) => console.error(err));
 
@@ -25,7 +28,7 @@ app.set('view engine', 'pug');
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(require('express-session')({
     secret: 'keyboard cat',
@@ -40,7 +43,7 @@ app.use('/', index);
 
 // passport configuration
 var User = require('./models/User');
-passport.use(new LocalStrategy(User.authenticate()));
+passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 

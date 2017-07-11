@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  form(method='POST' action='/regProducto')
+    div.form-group
+      label(for='nombre') nombre producto:
+      input#nombre.form-control(type='text', placeholder='nombre' name='nombre')
+    div.form-group
+      label(for='precio') precio:
+      input#precio.form-control(type='precio', placeholder='precio' name='precio')
+    div.form-group
+      label(for='descripcion') descripcion:
+      input#descripcion.form-control(type='text', placeholder='descripcion' name='descripcion')
+    button.btn.btn-primary(type='submit') Sign up
