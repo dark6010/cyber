@@ -1,14 +1,26 @@
 extends layout
 
 block content
-  form(method='POST' action='/regProducto')
-    div.form-group
-      label(for='nombre') nombre producto:
-      input#nombre.form-control(type='text', placeholder='nombre' name='nombre')
-    div.form-group
-      label(for='precio') precio:
-      input#precio.form-control(type='precio', placeholder='precio' name='precio')
-    div.form-group
-      label(for='descripcion') descripcion:
-      input#descripcion.form-control(type='text', placeholder='descripcion' name='descripcion')
-    button.btn.btn-primary(type='submit') Sign up
+  h2 Lista de Productos
+  form(method='POST' action='/regLista')
+    label(for="nombre") Nombre de la lista: 
+    input(type="text", name="nombre", id="nombre")
+    table.table.table-striped
+      thead
+        tr
+          th Nombre
+          th Precio
+          th Descripción
+          th Habilitar
+      tbody
+        each producto, index in productos
+          tr
+            td #{producto.nombre}
+            td #{producto.precio}
+            td #{producto.descripcion}
+            td
+              input(type="checkbox", name="p["+index+"]", value=producto._id)
+      row
+    row
+      .col-xs-12.col-md-12
+      button.btn.btn-primary(type='submit') Enviar
