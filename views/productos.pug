@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h2.text-center se creo la lista <i>#{nombre} </i>
+  br
+  table.table.table-striped
+    tr
+      th producto
+      th precio
+      th descripcion
+    each elemento, index in elementos
+      tr
+        td #{elemento}
+        td #{precios[index]}
+        td #{descripciones[index]}

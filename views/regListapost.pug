@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  row
+    .col-xs-8.col-md-8
+      h2.text-center se creo la lista <i>#{nombre} </i>
+    .col-xs-4.col-md-4
+      h3.text-right 
+        a(href="regLista") Volver
+  
+  br
+  table.table.table-striped
+    tr
+      th producto
+      th precio
+      th descripcion
+    each elemento, index in elementos
+      tr
+        td #{elemento}
+        td #{precios[index]}
+        td #{descripciones[index]}
+    

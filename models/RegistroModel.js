@@ -3,22 +3,16 @@ var Schema   = mongoose.Schema;
 
 var RegistroSchema = new Schema({
 	'fechaInicio' : Date,
-	'listaProd' : [{
-	 	type: Schema.Types.ObjectId,
-	 	ref: 'Lista'
-	}],
-	'listaCantIni' : Array,
+	'lista' : {},
 	'usuario' : {
 	 	type: Schema.Types.ObjectId,
 	 	ref: 'User'
 	},
 	'cajaIni' : Number,
-	'totalValini' : Number,
-	'addListaCantIni' : Array,
-	'addListaCost' : Array,
-	'listaCantFin' : Array,
-	'server1' : Number,
-	'server2' : Number,
+	'valIniProductos' : Number,
+	'valAddProductos' : Number,
+    'costoAddproductos': Number,
+    'marcadores': [],
 	'cajaFin' : Number,
 	'cajaTeo' : Number,
 	'fechaFin' : Date,

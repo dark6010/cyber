@@ -1,14 +1,30 @@
 extends layout
 
 block content
-  form(method='POST' action='/regProducto')
-    div.form-group
-      label(for='nombre') nombre producto:
-      input#nombre.form-control(type='text', placeholder='nombre' name='nombre')
-    div.form-group
-      label(for='precio') precio:
-      input#precio.form-control(type='precio', placeholder='precio' name='precio')
-    div.form-group
-      label(for='descripcion') descripcion:
-      input#descripcion.form-control(type='text', placeholder='descripcion' name='descripcion')
-    button.btn.btn-primary(type='submit') Sign up
+  if producto
+    h3 se agrego el producto
+    h4 
+      b nombre: 
+      | #{producto.nombre} 
+      b precio: 
+      | #{producto.precio} 
+      b descripcion: 
+      | #{producto.descripcion}
+  row
+    .col-xs-8.col-md-8
+      h2 Registro de Producto
+    .col-xs-4.col-md-4
+      h3.text-right
+        a(href="regLista") Volver
+  row
+    form.col-xs-12.col-md-12(method='POST' action='/regProducto')
+      div.form-group
+        label(for='nombre') nombre producto:
+        input#nombre.form-control(type='text', placeholder='nombre' name='nombre')
+      div.form-group
+        label(for='precio') precio:
+        input#precio.form-control(type='precio', placeholder='precio' name='precio')
+      div.form-group
+        label(for='descripcion') descripcion:
+        input#descripcion.form-control(type='text', placeholder='descripcion' name='descripcion')
+      button.btn.btn-primary(type='submit') Registrar

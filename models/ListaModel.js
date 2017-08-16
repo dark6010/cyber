@@ -7,10 +7,7 @@ var ListaSchema = new Schema({
 	 	type: Schema.Types.ObjectId,
 	 	ref: 'Producto'
 	}],
-	'usedBy' : [{
-	 	type: Schema.Types.ObjectId,
-	 	ref: 'Registro'
-	}]
+	
 });
 
 module.exports = mongoose.model('Lista', ListaSchema);

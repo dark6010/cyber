@@ -20,6 +20,10 @@ router.post('/login', auth.doLogin);
 
 // route for logout action
 router.get('/logout', auth.logout);
+
+router.get('/manager', proc.manager)
+router.get('/productos', proc.productos)
+
 router.get('/regProducto', proc.regProducto);
 router.post('/regProducto', proc.postregProducto);
 router.get('/regLista', proc.regLista);

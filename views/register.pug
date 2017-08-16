@@ -4,7 +4,13 @@ block content
   .container
     form.form-signin(role='form', action="/register",method="post", style='max-width: 300px;')
       h2.form-signin-heading Sign Up here
-      input.form-control(type='text', name="name", placeholder='Your Name')
-      input.form-control(type='text', name="username", placeholder='Your Username')
-      input.form-control(type='password', name="password", placeholder='Your Password')
-      button.btn.btn-lg.btn-primary.btn-block(type='submit') Sign Up
+      input.form-control(type='text', name="name", placeholder='el nombre del usuario')
+      input.form-control(type='text', name="username", placeholder='login del usuario')
+      input.form-control(type='password', name="password", placeholder='password del usuario')
+      input.form-control(type='input', name="marcador[0]", placeholder='marcador 1')
+      input.form-control(type='input', name="marcador[1]", placeholder='marcador 2')
+      input.form-control(type='input', name="marcador[2]", placeholder='marcador 3')
+      input.form-control(type='input', name="prefList", placeholder='lista de usuario preferida')
+      
+      
+      button.btn.btn-lg.btn-primary.btn-block(type='Enviar') Registrar

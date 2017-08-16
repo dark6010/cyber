@@ -12,10 +12,11 @@ var UserSchema = new Schema({
       type: Schema.Types.ObjectId,
       ref: 'Registro'
     },
-    preflist:{
+    prefList:{
       type: Schema.Types.ObjectId,
       ref: 'Lista'
-    }
+    },
+    marcadores:[]
 });
 
 UserSchema.plugin(passportLocalMongoose);

@@ -1,26 +1,36 @@
 extends layout
 
 block content
-  h2 Lista de Productos
-  form(method='POST' action='/regLista')
+  h2 
+    row
+      .col-xs-8.col-md-8.text-center Lista de Productos
+      .col-xs-4.col-md-4.text-right
+        h3
+          a(href="regProducto") añadir producto 
+  form.text-center(method='POST' action='/regLista')
     label(for="nombre") Nombre de la lista: 
     input(type="text", name="nombre", id="nombre")
     table.table.table-striped
       thead
         tr
-          th Nombre
-          th Precio
-          th Descripción
-          th Habilitar
+          th.text-center Descripción
+          th.text-center listas
+          th.text-center Precio
+          th.text-center Nombre
+          th.text-center editar
+          th.text-center eliminar
       tbody
         each producto, index in productos
           tr
-            td #{producto.nombre}
-            td #{producto.precio}
             td #{producto.descripcion}
+            td listas
+            td #{producto.precio}
             td
-              input(type="checkbox", name="p["+index+"]", value=producto._id)
-      row
+              label #{producto.nombre}
+                input(type="checkbox", name="p["+index+"]", value=producto._id)
+            td editar
+            td eliminar
+              
     row
-      .col-xs-12.col-md-12
-      button.btn.btn-primary(type='submit') Enviar
+      .col-xs-12.col-md-12.text-center
+        button.btn.btn-primary(type='submit') Registrar
